@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContextType;
 @Stateless
 public class GenericServiceBean /*implements GenericService*/{
 
-	@PersistenceContext(unitName="UNMVMCARD_PU", type=PersistenceContextType.EXTENDED)
+	@PersistenceContext(unitName="UNMVMCARD_PU")
     private EntityManager em;
 
 	public GenericServiceBean() {
