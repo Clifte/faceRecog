@@ -7,26 +7,26 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 
 @Stateless
-public class GenericServiceBean implements GenericService{
+public class GenericServiceBean /*implements GenericService*/{
 
-	@PersistenceContext(unitName="UNMVMCARD_PU", type=PersistenceContextType.EXTENDED)
+	@PersistenceContext(unitName="UNMVMCARD_PU")
     private EntityManager em;
 
 	public GenericServiceBean() {
 		System.out.println("Creating DAOA");
 	}
-	@Override
+//	@Override
 	public <T> T createOrUpdate(T obj) {
 		em.merge(obj); 
 		return null; 
 	}
 
-	@Override
+//	@Override
 	public <T> void remove(T obj) {
 		em.remove(obj);	
 	}
 
-	@Override
+//	@Override
 	public <T> T find(Object obj) {
 		return null;
 	}
