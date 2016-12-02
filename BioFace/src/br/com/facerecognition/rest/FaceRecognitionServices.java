@@ -29,10 +29,13 @@ import br.com.facerecognition.entity.Log;
 @Stateless
 public class FaceRecognitionServices {
  
+		
+	@EJB
+	GenericServiceBean gsb;
 	
 	private String rootPath = "c:";
  
-	@RolesAllowed("App")
+//	@RolesAllowed("App")
 	@POST
 	@Path("/register/face/{codEmp}/{codServ}/{codUsr}")
 	@Produces("application/json;charset=UTF-8")
@@ -59,7 +62,7 @@ public class FaceRecognitionServices {
 		return Response.ok(job.build()).build();
 	}
 	 
-	@RolesAllowed("App")
+//	@RolesAllowed("App")
 	@GET   
 	@Path("/version") 
 	@Produces("application/json;charset=UTF-8")	
@@ -67,8 +70,8 @@ public class FaceRecognitionServices {
 		
 		 
 		
-		//GenericServiceBean gsb = new GenericServiceBean();
-		//gsb.createOrUpdate(new Log("Version Query","INFO"));
+//		GenericServiceBean gsb = new GenericServiceBean();
+		gsb.createOrUpdate(new Log("Version Query","INFO"));
 		 
 		JsonObjectBuilder job = Json.createObjectBuilder();
 		job.add("version", "0.1"); 
